@@ -113,16 +113,16 @@ const Footer = () => {
           </nav>
         </MainNavArea>
       </MaxWidthWrapper>
-      <SubfooterWrapper>
+      <SubFooterWrapper>
         <MaxWidthWrapper>
-          <Subfooter>
+          <SubFooter>
             <Logo href="/">New Grid Times</Logo>
             <Disclaimer>
               © 2021 Fake Company Ltd. All Rights Reserved
             </Disclaimer>
-          </Subfooter>
+          </SubFooter>
         </MaxWidthWrapper>
-      </SubfooterWrapper>
+      </SubFooterWrapper>
     </Wrapper>
   );
 };
@@ -134,36 +134,34 @@ const Wrapper = styled.footer`
 `;
 
 const TopRow = styled.div`
+  align-items: center;
+  border-bottom: 1px solid var(--color-gray-700);
+  color: var(--color-gray-300);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  color: var(--color-gray-300);
   font-size: 0.875rem;
-  border-bottom: 1px solid var(--color-gray-700);
+  gap: 16px;
   padding: 24px 0;
-
-  @media ${QUERIES.tabletAndUp} {
-    flex-direction: row;
-    justify-content: center;
-    gap: 48px;
-  }
 
   @media ${QUERIES.laptopAndUp} {
     justify-content: flex-end;
+  }
+
+  @media ${QUERIES.tabletAndUp} {
+    flex-direction: row;
+    gap: 48px;
+    justify-content: center;
   }
 `;
 
 const Social = styled.div`
   display: flex;
   gap: 24px;
-
-  svg {
-    display: block;
-  }
-
   path {
     stroke-width: 1.5px;
+  }
+  svg {
+    display: block;
   }
 `;
 
@@ -181,16 +179,16 @@ const MainNavArea = styled.div`
 
   @media ${QUERIES.tabletAndUp} {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     flex-direction: revert;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     text-align: left;
   }
 `;
 
 const MainNavHeading = styled.h2`
+  color: var(--color-gray-300);
   font-size: 1.125rem;
   font-weight: var(--font-weight-bold);
-  color: var(--color-gray-300);
   margin-bottom: 8px;
 
   @media ${QUERIES.laptopAndUp} {
@@ -204,29 +202,28 @@ const MainNavList = styled.ul`
   gap: 4px;
 `;
 
-const SubfooterWrapper = styled.div`
+const SubFooterWrapper = styled.div`
   background: var(--color-offblack);
-  padding: 8px 0px;
-  /* Optical alignment */
-  padding-bottom: 16px;
+  padding-block: 8px 16px;
+  padding-inline: 0;
 `;
 
-const Subfooter = styled.div`
+const SubFooter = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 `;
 
 const Logo = styled.a`
+  color: var(--color-gray-100);
   font-family: var(--font-family-logo);
   font-size: 2rem;
-  color: var(--color-gray-100);
 `;
 
 const Disclaimer = styled.p`
-  margin-top: -4px;
-  font-size: 0.875rem;
   color: var(--color-gray-500);
+  font-size: 0.875rem;
+  margin-top: -4px;
 `;
 
 export default Footer;
