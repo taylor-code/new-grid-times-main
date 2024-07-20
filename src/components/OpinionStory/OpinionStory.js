@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
+import { QUERIES } from '../../constants';
+
 const OpinionStory = ({ id, title, author, avatar }) => {
   return (
     <a href={`/story/${id}`}>
@@ -20,11 +22,18 @@ const Wrapper = styled.article`
 `;
 
 const Avatar = styled.img`
-  display: block;
-  width: 48px;
-  height: 48px;
   border-radius: 50%;
+  display: block;
+  float: right;
+  height: 48px;
+  margin-inline-start: 16px;
   object-fit: cover;
+  width: 48px;
+
+  @media ${QUERIES.tabletOnly} {
+    float: revert;
+    margin-left: revert;
+  }
 `;
 
 const AuthorName = styled.p`
